@@ -38,26 +38,28 @@ switch(op)
 int main(void)
 {
   float Num1,Num2,result;
-  char op,user_ctrl=1;
-  while(user_ctrl)
+  char op;
+  while(1)
   {
-  printf("Enter 1st number:\n");
-  scanf("%f",&Num1);
-  
-  printf("Enter 2nd number:\n");
-  scanf("%f",&Num2);
-  
-  printf("Enter operation:\n");
-  scanf(" %c",&op);
-  
-  if(calc(Num1,Num2,op,&result))
-     printf("output:%.2f\n",result);
-  
-  printf("Do you want to continue the calculation:y/n\n");
-  scanf(" %c",&op);
-  if(op!='y')
-    user_ctrl=0;
-    printf("Program Exit\n");
+    printf("Enter 1st number:\n");
+    scanf("%f",&Num1);
+    
+    printf("Enter 2nd number:\n");
+    scanf("%f",&Num2);
+    
+    printf("Enter operation:\n");
+    scanf(" %c",&op);
+    
+    if(calc(Num1,Num2,op,&result))
+       printf("output:%.2f\n",result);
+    
+    printf("Do you want to continue the calculation:y/n\n");
+    scanf(" %c",&op);//space before %c read the newline(\n) and wait for next char, if space not given op get newline(\n) as input.
+    if(op!='y')
+    {
+      printf("Program Exit\n");
+      break;
+    }
   }
   return 0;
 }
