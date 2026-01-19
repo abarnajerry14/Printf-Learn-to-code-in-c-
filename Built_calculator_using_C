@@ -1,1 +1,57 @@
+#include <stdio.h>
 
+
+float calc(float Num1,float Num2,char op)
+{
+switch(op)
+{
+  case '+':
+  return Num1 + Num2;
+ 
+  case '-':
+  return Num1 - Num2;
+  
+  case '/':
+    if(Num2==0)
+    {
+    printf("Invalid Num2 data");
+    return 0;
+    }
+    return Num1/Num2;
+  
+   case '*':
+    return Num1*Num2;
+ 
+   default:
+    printf("enter valid op");
+    return 0;
+}
+}
+
+int main(void)
+{
+  float Num1,Num2,sum;
+  char op,user_ctrl=1;
+  while(user_ctrl)
+  {
+  printf("Enter 1st number:\n");
+  scanf("%f",&Num1);
+  
+  printf("Enter 2nd number:\n");
+  scanf("%f",&Num2);
+  
+  printf("Enter operation:\n");
+  scanf(" %c",&op);
+  
+  sum=calc(Num1,Num2,op);
+  printf("output:%.2f\n",sum);
+  
+  printf("Do you want to continue the calculation:y/n\n");
+  scanf(" %c",&op);
+  //user control the further execution
+  if(op!='y')
+    user_ctrl=0;
+    printf("Program Exit\n");
+  }
+  return 0;
+}
